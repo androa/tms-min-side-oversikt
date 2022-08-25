@@ -6,8 +6,9 @@ import { SpeechBubble } from "@navikt/ds-icons";
 import BeskjedCSS from "./Beskjed.module.css";
 import useStore from "../../../store/store";
 import { selectRemoveBeskjed } from "../../../store/selectors";
+import { remove } from "../varsler-list/VarslerList";
 
-const Beskjed = ({ tekst, dato, href, isMasked, remove, beskjed }) => {
+const Beskjed = ({ tekst, dato, href, isMasked, beskjed }) => {
   const translate = useIntl();
 
   const printTekst = isMasked ? translate.formatMessage({ id: "beskjed.maskert.tekst" }) : tekst;

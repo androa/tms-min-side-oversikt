@@ -7,8 +7,9 @@ import ArkiverKnapp from "../../arkiverknapp/ArkiverKnapp";
 import BeskjedCSS from "./ArkiverbarBeskjed.module.css";
 import useStore from "../../../store/store";
 import { selectRemoveBeskjed } from "../../../store/selectors";
+import { remove } from "../varsler-list/VarslerList";
 
-const ArkiverbarBeskjed = ({ tekst, dato, isMasked, remove, beskjed }) => {
+const ArkiverbarBeskjed = ({ tekst, dato, isMasked, beskjed }) => {
   const [showArkiverIkon, setShowArkiverIkon] = useState(false);
   const translate = useIntl();
 

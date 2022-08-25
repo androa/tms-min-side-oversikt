@@ -67,7 +67,6 @@ const VarslerList = () => {
                 dato={formatToReadableDate(b.forstBehandlet)}
                 href={b.link}
                 isMasked={isMasked(b?.tekst)}
-                remove={remove}
                 beskjed={b}
               />
             ) : (
@@ -76,7 +75,6 @@ const VarslerList = () => {
                 dato={formatToReadableDate(b.forstBehandlet)}
                 href={b.link}
                 isMasked={isMasked(b?.tekst)}
-                remove={remove}
                 beskjed={b}
               />
             )
