@@ -27,7 +27,7 @@ const Beskjed = ({ tekst, dato, href, isMasked, remove, beskjed }) => {
         eventId: beskjed.eventId,
       });
     }
-    // removeBeskjed(beskjed);
+    removeBeskjed(beskjed);
   };
 
   const handleOnClick = () => {
