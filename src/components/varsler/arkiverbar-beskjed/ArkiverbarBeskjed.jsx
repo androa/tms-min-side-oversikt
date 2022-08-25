@@ -5,6 +5,8 @@ import { loginserviceStepUpUrl } from "../../../api/urls";
 import { SpeechBubble, FileFolder } from "@navikt/ds-icons";
 import ArkiverKnapp from "../../arkiverknapp/ArkiverKnapp";
 import BeskjedCSS from "./ArkiverbarBeskjed.module.css";
+import useStore from "../../../store/store";
+import { selectRemoveBeskjed } from "../../../store/selectors";
 
 const ArkiverbarBeskjed = ({ tekst, dato, isMasked, remove, beskjed }) => {
   const [showArkiverIkon, setShowArkiverIkon] = useState(false);

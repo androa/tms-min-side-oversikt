@@ -4,6 +4,8 @@ import { LinkPanel } from "@navikt/ds-react";
 import { loginserviceStepUpUrl } from "../../../api/urls";
 import { SpeechBubble } from "@navikt/ds-icons";
 import BeskjedCSS from "./Beskjed.module.css";
+import useStore from "../../../store/store";
+import { selectRemoveBeskjed } from "../../../store/selectors";
 
 const Beskjed = ({ tekst, dato, href, isMasked, remove, beskjed }) => {
   const translate = useIntl();

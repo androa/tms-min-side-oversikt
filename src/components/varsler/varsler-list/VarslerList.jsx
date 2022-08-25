@@ -13,6 +13,22 @@ import Beskjed from "../../varsler/beskjed/Beskjed";
 import ArkiverbarBeskjed from "../../varsler/arkiverbar-beskjed/ArkiverbarBeskjed";
 import InnboksBeskjed from "../innboks-beskjed/InnboksBeskjed";
 
+export const remove = (beskjed) => {
+  const removeBeskjed = useStore(selectRemoveBeskjed);
+
+  if (beskjed.produsent === "digiSos") {
+    postDigisosDone({
+      eventId: beskjed.eventId,
+      grupperingsId: beskjed.grupperingsId,
+    });
+  } else {
+    postDone({
+      eventId: beskjed.eventId,
+    });
+  }
+  removeBeskjed(beskjed);
+};
+
 const VarslerList = () => {
   const { data: oppgaver } = useQuery(oppgaverApiUrl, fetcher);
   const { data: innboks } = useQuery(innboksApiUrl, fetcher);
@@ -23,23 +39,7 @@ const VarslerList = () => {
     onSuccess: addBeskjederList,
   });
 
-  const removeBeskjed = useStore(selectRemoveBeskjed);
   const hasNoHref = (href) => href === undefined || href === null || href === "";
-
-  const remove = (beskjed) => {
-    if (beskjed.produsent === "digiSos") {
-      postDigisosDone({
-        eventId: beskjed.eventId,
-        grupperingsId: beskjed.grupperingsId,
-      });
-    } else {
-      postDone({
-        eventId: beskjed.eventId,
-      });
-    }
-    removeBeskjed(beskjed);
-  };
-
   setLocaleDate();
 
   return (
