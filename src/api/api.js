@@ -25,6 +25,7 @@ const postJSON = (url, content) =>
         Accept: "application/json",
         "Content-Type": "application/json",
       },
+      mode: "cors",
       body: JSON.stringify(content),
     })
       .then((response) => response.headers)
