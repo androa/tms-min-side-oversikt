@@ -30,6 +30,8 @@ const Beskjed = ({ tekst, dato, href, isMasked, remove, beskjed }) => {
     // removeBeskjed(beskjed);
   };
 
+  requestDone(beskjed);
+
   const handleOnClick = () => {
     requestDone(beskjed);
     logAmplitudeEvent("Beskjed");
