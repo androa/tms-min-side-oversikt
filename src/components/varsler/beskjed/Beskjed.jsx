@@ -17,6 +17,7 @@ const Beskjed = ({ tekst, dato, href, isMasked, remove, beskjed }) => {
   const lenke = isMasked ? loginserviceStepUpUrl : href;
 
   const requestDone = (beskjed) => {
+    console.log("Sending done request...");
     if (beskjed.produsent === "digiSos") {
       postDigisosDone({
         eventId: beskjed.eventId,
@@ -38,7 +39,15 @@ const Beskjed = ({ tekst, dato, href, isMasked, remove, beskjed }) => {
   };
 
   return (
-    <LinkPanel className={BeskjedCSS.wrapper} href={lenke} border={false} onClick={() => handleOnClick()}>
+    <LinkPanel
+      className={BeskjedCSS.wrapper}
+      href={lenke}
+      border={false}
+      onClick={() => {
+        requestDone(beskjed);
+        logAmplitudeEvent("Arkiverbar beskjed");
+      }}
+    >
       <div
         style={{
           display: "grid",
