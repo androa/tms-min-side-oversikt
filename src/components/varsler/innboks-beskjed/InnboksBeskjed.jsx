@@ -7,9 +7,7 @@ import BeskjedCSS from "../beskjed/Beskjed.module.css";
 
 const InnboksBeskjed = ({ tekst, dato, href, isMasked }) => {
   const translate = useIntl();
-
   const printTekst = isMasked ? translate.formatMessage({ id: "beskjed.maskert.tekst" }) : tekst;
-
   const lenke = isMasked ? loginserviceStepUpUrl : href;
 
   return (
