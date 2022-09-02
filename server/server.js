@@ -10,6 +10,8 @@ server.use(cors({ origin: corsAllowedOrigin }));
 
 const expressStaticGzip = require("express-static-gzip");
 
+server.enable("etag");
+
 server.use(
   basePath,
   expressStaticGzip(buildPath, {
